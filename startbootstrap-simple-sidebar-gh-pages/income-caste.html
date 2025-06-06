@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Income/Caste Certificate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h2>Income/Caste Certificate Application</h2>
+    <form class="mt-4" id="certificateForm">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" placeholder="Enter your full name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mobile Number</label>
+        <input type="tel" class="form-control" placeholder="Enter your mobile number" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Certificate Type</label>
+        <select class="form-select" required>
+          <option value="">Select certificate type</option>
+          <option value="income">Income Certificate</option>
+          <option value="caste">Caste Certificate</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Address</label>
+        <textarea class="form-control" rows="3" placeholder="Enter your address" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Upload Documents</label>
+        <input type="file" class="form-control" id="uploadDocs" required>
+      </div>
+      <button type="submit" class="btn btn-info">Submit Application</button>
+    </form>
+
+    <div class="mt-3 text-success fw-bold d-none" id="successMessage">
+      ✅ Application Submitted Successfully!
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("certificateForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Stop page refresh
+
+      const fileInput = document.getElementById("uploadDocs");
+      const successMsg = document.getElementById("successMessage");
+
+      if (fileInput.files.length === 0) {
+        alert("❗ Please upload the required documents before submitting.");
+      } else {
+        successMsg.classList.remove("d-none");
+      }
+    });
+  </script>
+</body>
+</html>
